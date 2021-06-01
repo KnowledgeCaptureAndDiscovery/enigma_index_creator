@@ -20,9 +20,7 @@ public class Entry {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    
-    
+
     public String toHTML(){
         String html = "<h3 id=\""+this.name+"\">"+this.name+"</h3>\n";
         if(description!=null && !description.equals("")){
@@ -31,6 +29,4 @@ public class Entry {
         html +="<p>Defined in: <a href=\""+this.linkToSpec+"#"+this.name+"\">"+this.titleOfDocWhereItsDefined+"</a></p>";
         return html;
     }
-            
-    
 }
