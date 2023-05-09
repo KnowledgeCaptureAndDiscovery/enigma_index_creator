@@ -23,6 +23,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: 'true'
           
       # Build package
       - name: Set up JDK 17
@@ -37,6 +39,7 @@ jobs:
       # Run all configurations:
       - name: Creating ontologies
         run: |
+          ls ontologies
           for f in configs/*.csv
           do
             java -jar target/DictionaryIndexCreator-1.0-jar-with-dependencies.jar $f
