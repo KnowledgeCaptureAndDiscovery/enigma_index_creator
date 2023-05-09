@@ -67,6 +67,7 @@ public class CreateIndex {
             if (in == null) throw new Exception("File not found: " + path);
             model.read(in, null, serialization);
         } catch (Exception e) {
+            System.err.println(e.toString());
             System.err.println("Could not open the ontology " + path);
         }
     }
@@ -78,6 +79,7 @@ public class CreateIndex {
             if (in == null) throw new Exception("File not found: " + path);
             model.read(in, null, serialization);
         } catch (Exception e) {
+            System.err.println(e.toString());
             System.err.println("Could not open the ontology " + path);
         }
     }
@@ -89,7 +91,7 @@ public class CreateIndex {
             model.write(out,mode);
             out.close();
         } catch (Exception ex) {
-            System.out.println("Error while writing the model to file "+ex.getMessage() + " oufile "+outFile);
+            System.out.println("Error while writing the model to file:\n"+ex.getMessage() + "\n File:  "+outFile);
         }
     }
     
@@ -126,17 +128,16 @@ public class CreateIndex {
         String inputConf = args[0];
         System.out.println("Reading " + inputConf);
 
-        Path cpath = Paths.get(inputConf);
-        String cname = cpath.getFileName().toString();
+        Path cfgPath = Paths.get(inputConf);
+        String cname = cfgPath.getFileName().toString();
         if (cname.contains(".")) {
             cname =  cname.substring(0, cname.lastIndexOf('.'));
         }
 
         List<String> lines;
         try {
-            lines = Files.readAllLines(cpath);
+            lines = Files.readAllLines(cfgPath);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return;
         }
@@ -157,13 +158,14 @@ public class CreateIndex {
                 processModel(model, web, name, entries);
             }
         }
+        String OUT = "outputs/";
 
-        exportRDFFile("ontology_" + cname + ".owl", all, "RDF/XML");
+        exportRDFFile(OUT + "ontology_" + cname + ".owl", all, "RDF/XML");
         System.out.println("Created: ontology_" + cname + ".owl");
-        exportRDFFile("ontology_" + cname + ".ttl", all, "TTL");
+        exportRDFFile(OUT + "ontology_" + cname + ".ttl", all, "TTL");
         System.out.println("Created: ontology_" + cname + ".ttl");
 
-        writeHtml(entries, cname + ".html");
+        writeHtml(entries, OUT + cname + ".html");
         System.out.println("Created: " + cname + ".html");
     }
 

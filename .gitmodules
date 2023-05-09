@@ -1,0 +1,3 @@
+[submodule "ontologies/EnigmaOntology"]
+	path = ontologies/EnigmaOntology
+	url = https://github.com/KnowledgeCaptureAndDiscovery/EnigmaOntology.git
