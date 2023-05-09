@@ -13,6 +13,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -49,3 +52,12 @@ jobs:
       - name: Outputs generated
         run: |
           ls outputs
+        
+      # Commit outputs
+      - name: Commit report
+        run: |
+          git config --global user.name 'Github Action'
+          git config --global user.email 'hvarg@users.noreply.github.com'
+          git add outputs
+          git commit -m "Automated ontology generation"
+          git push
