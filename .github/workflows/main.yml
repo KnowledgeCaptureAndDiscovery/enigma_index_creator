@@ -37,4 +37,12 @@ jobs:
       # Run all configurations:
       - name: Creating ontologies
         run: |
-          for f in configs/*.csv; do; java -jar target/DictionaryIndexCreator-1.0-jar-with-dependencies.jar $f; done;
+          for f in configs/*.csv
+          do
+            java -jar target/DictionaryIndexCreator-1.0-jar-with-dependencies.jar $f
+          done
+
+      # Check generated outputs:
+      - name: Outputs generated
+        run: |
+          ls outputs
