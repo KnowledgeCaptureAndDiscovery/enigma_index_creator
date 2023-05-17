@@ -1185,11 +1185,11 @@ xsd:date
       rdfs:comment "Property that describes the home page of a cohort or person"@en , "Homepage URL of the Person or Cohort"@en ;
       rdfs:domain
               [ a       owl:Class ;
-                owl:unionOf (:Cohort :CohortGroup :CohortProject :Person)
+                owl:unionOf (:Cohort :Person)
               ] ;
       rdfs:domain
               [ a       owl:Class ;
-                owl:unionOf (:Cohort :Person)
+                owl:unionOf (:Cohort :CohortGroup :CohortProject :Person)
               ] ;
       rdfs:label "has home page"@en ;
       rdfs:range owl:Thing , xsd:anyURI ;

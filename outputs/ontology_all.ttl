@@ -789,11 +789,11 @@ xsd:date
       rdfs:comment "Property that describes the home page of a cohort or person"@en , "Homepage URL of the Person or Cohort"@en ;
       rdfs:domain
               [ a       owl:Class ;
-                owl:unionOf (:Cohort :CohortGroup :CohortProject :Person)
+                owl:unionOf (:Cohort :Person)
               ] ;
       rdfs:domain
               [ a       owl:Class ;
-                owl:unionOf (:Cohort :Person)
+                owl:unionOf (:Cohort :CohortGroup :CohortProject :Person)
               ] ;
       rdfs:label "has home page"@en ;
       rdfs:range owl:Thing , xsd:anyURI ;
@@ -936,11 +936,11 @@ xsd:date
       rdfs:comment "Describes which brain scan data types a cohort or project has"@en , "Describes the brain scan data types that were collected for a cohort or project"@en ;
       rdfs:domain
               [ a       owl:Class ;
-                owl:unionOf (:Cohort :Project)
+                owl:unionOf (:Cohort :CohortGroup :CohortProject :Project)
               ] ;
       rdfs:domain
               [ a       owl:Class ;
-                owl:unionOf (:Cohort :CohortGroup :CohortProject :Project)
+                owl:unionOf (:Cohort :Project)
               ] ;
       rdfs:label "has brain scan data type"@en ;
       rdfs:range :BrainScanDataType ;
@@ -1091,15 +1091,15 @@ xsd:date
       rdfs:comment "Provides a brief description of the working group or project or cohort or image acquisition protocol"@en , "Provides a brief description of the working group or project or cohort"@en ;
       rdfs:domain
               [ a       owl:Class ;
-                owl:unionOf (:Cohort :Project :WorkingGroup)
-              ] ;
-      rdfs:domain
-              [ a       owl:Class ;
-                owl:unionOf (:Cohort :Project :WorkingGroup)
-              ] ;
-      rdfs:domain
-              [ a       owl:Class ;
                 owl:unionOf (:Cohort :CohortGroup :CohortProject :ImageAcquisitionProtocol :Project :WorkingGroup)
+              ] ;
+      rdfs:domain
+              [ a       owl:Class ;
+                owl:unionOf (:Cohort :Project :WorkingGroup)
+              ] ;
+      rdfs:domain
+              [ a       owl:Class ;
+                owl:unionOf (:Cohort :Project :WorkingGroup)
               ] ;
       rdfs:label "has brief description"@en ;
       rdfs:range xsd:string ;

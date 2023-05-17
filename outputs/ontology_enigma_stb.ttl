@@ -100,6 +100,9 @@
       rdfs:isDefinedBy "http://xmlns.com/foaf/0.1/"@en ;
       owl:equivalentClass :Person .
 
+[]    a       owl:AllDisjointProperties ;
+      owl:members (:hasNumberOfSlices) .
+
 :Protocol
       a       owl:Class ;
       rdfs:comment "An image processing or genetic analysis protocol used to extract brain feature data"@en ;
@@ -1228,15 +1231,15 @@ xsd:date
       rdfs:comment "Provides a brief description of the working group or project or cohort or image acquisition protocol"@en , "Provides a brief description of the working group or project or cohort"@en ;
       rdfs:domain
               [ a       owl:Class ;
+                owl:unionOf (:Cohort :Project :WorkingGroup)
+              ] ;
+      rdfs:domain
+              [ a       owl:Class ;
+                owl:unionOf (:Cohort :Project :WorkingGroup)
+              ] ;
+      rdfs:domain
+              [ a       owl:Class ;
                 owl:unionOf (:Cohort :CohortGroup :CohortProject :ImageAcquisitionProtocol :Project :WorkingGroup)
-              ] ;
-      rdfs:domain
-              [ a       owl:Class ;
-                owl:unionOf (:Cohort :Project :WorkingGroup)
-              ] ;
-      rdfs:domain
-              [ a       owl:Class ;
-                owl:unionOf (:Cohort :Project :WorkingGroup)
               ] ;
       rdfs:label "has brief description"@en ;
       rdfs:range xsd:string ;
@@ -2249,9 +2252,6 @@ Example: STELLENBOCH_proj_FS for the Freesurfer project"""@en , "A group of indi
       a       owl:Class ;
       rdfs:isDefinedBy <http://purl.org/ontology/bibo/AcademicArticle> ;
       owl:equivalentClass :AcademicArticle .
-
-[]    a       owl:AllDisjointProperties ;
-      owl:members (:hasNumberOfSlices) .
 
 :hasOrcidId
       a       owl:ObjectProperty ;

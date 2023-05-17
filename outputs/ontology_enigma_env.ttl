@@ -986,11 +986,11 @@ xsd:date
       rdfs:comment "Provides a brief description of the working group or project or cohort or image acquisition protocol"@en , "Provides a brief description of the working group or project or cohort"@en ;
       rdfs:domain
               [ a       owl:Class ;
-                owl:unionOf (:Cohort :Project :WorkingGroup)
+                owl:unionOf (:Cohort :CohortGroup :CohortProject :ImageAcquisitionProtocol :Project :WorkingGroup)
               ] ;
       rdfs:domain
               [ a       owl:Class ;
-                owl:unionOf (:Cohort :CohortGroup :CohortProject :ImageAcquisitionProtocol :Project :WorkingGroup)
+                owl:unionOf (:Cohort :Project :WorkingGroup)
               ] ;
       rdfs:domain
               [ a       owl:Class ;
