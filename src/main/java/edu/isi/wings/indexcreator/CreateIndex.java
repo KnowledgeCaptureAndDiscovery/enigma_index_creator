@@ -16,9 +16,19 @@ limitations under the License.
 package edu.isi.wings.indexcreator;
 
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.ResIterator;
+import com.hp.hpl.jena.rdf.model.Selector;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.FileManager;
+import com.hp.hpl.jena.vocabulary.VCARD;
 import com.hp.hpl.jena.rdf.model.Model;
 
 import java.io.FileOutputStream;
@@ -39,7 +49,7 @@ import java.util.TreeSet;
 /**
  * This class loads one or multiple models into a single OntModel and produces
  * an html that serializes everything alphabetically.
- * @author dgarijo
+ * @author dgarijo, hvargas
  */
 public class CreateIndex {
     private static String getSerializationFromPath (String path) {
@@ -146,26 +156,28 @@ public class CreateIndex {
         Model all = ModelFactory.createDefaultModel();
         for (String line: lines) {
             String[] sp = line.split(",");
-            if (sp.length == 3) {
+            if (sp.length == 2) {
                 System.out.println(sp[0] + " = " + sp[1]);
                 String name = sp[0];
                 String path = sp[1];
-                String web = sp[2];
+                String ontology_path = path + "ontology.ttl";
+                String web = path + "index-en.html";
 
                 OntModel model = ModelFactory.createOntologyModel();
-                readModel(model, path);
-                readModel(all, path);
+                readModel(model, ontology_path);
+                readModel(all, ontology_path);
                 processModel(model, web, name, entries);
             }
         }
-        String OUT = "outputs/";
+        System.out.println(entries.size());
 
-        exportRDFFile(OUT + "ontology_" + cname + ".owl", all, "RDF/XML");
+
+        exportRDFFile("ontology_" + cname + ".owl", all, "RDF/XML");
         System.out.println("Created: ontology_" + cname + ".owl");
-        exportRDFFile(OUT + "ontology_" + cname + ".ttl", all, "TTL");
+        exportRDFFile("ontology_" + cname + ".ttl", all, "TTL");
         System.out.println("Created: ontology_" + cname + ".ttl");
 
-        writeHtml(entries, OUT + cname + ".html");
+        writeHtml(entries, "index-" + cname + ".html");
         System.out.println("Created: " + cname + ".html");
     }
 

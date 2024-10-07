@@ -1,8 +1,8 @@
-The Cohort Ontology,ontologies/EnigmaOntology/release/cohort/1.1.0/ontology.ttl,cohort/1.1.0/index-en.html
-The Person Ontology,ontologies/EnigmaOntology/release/person/1.1.0/ontology.ttl,person/1.1.0/index-en.html
-The Project Ontology,ontologies/EnigmaOntology/release/project/1.1.0/ontology.ttl,project/1.1.0/index-en.html
-The Core Ontology,ontologies/EnigmaOntology/release/core/1.1.0/ontology.ttl,core/1.1.0/index-en.html
-The PD Cardiovascular Ontology,ontologies/EnigmaOntology/release/pd-cardiovascular/1.1.0/ontology.ttl,pd-cardiovascular/1.1.0/index-en.html
-The PD Cognitive Ontology,ontologies/EnigmaOntology/release/pd-cognitive/1.1.0/ontology.ttl,pd-cognitive/1.1.0/index-en.html
-The PD Demographic Ontology,ontologies/EnigmaOntology/release/pd-demographics/1.1.0/ontology.ttl,pd-demographics/1.1.0/index-en.html
-The PD Neuropsychiatric Ontology,ontologies/EnigmaOntology/release/pd-neuropsychiatric/1.1.0/ontology.ttl,pd-neuropsychiatric/1.1.0/index-en.html
+The Cohort Ontology,../EnigmaOntology/release/cohort/1.1.0/
+The Person Ontology,../EnigmaOntology/release/person/1.1.0/
+The Project Ontology,../EnigmaOntology/release/project/1.1.0/
+The Core Ontology,../EnigmaOntology/release/core/1.1.0/
+The PD Cardiovascular Ontology,../EnigmaOntology/release/pd-cardiovascular/1.1.0/
+The PD Cognitive Ontology,../EnigmaOntology/release/pd-cognitive/1.1.0/
+The PD Demographic Ontology,../EnigmaOntology/release/pd-demographics/1.1.0/
+The PD Neuropsychiatric Ontology,../EnigmaOntology/release/neuropsychiatric/1.1.0/
